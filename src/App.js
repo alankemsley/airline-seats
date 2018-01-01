@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Aircraft from './components/Aircraft/Aircraft';
 
 class App extends Component {
   render() {
@@ -12,7 +13,7 @@ class App extends Component {
           </header>
           <main className="App-main">
             <h1 className="App-title">SELECT SEAT</h1>
-            {/* <Aircraft /> */}
+            <Aircraft />
           </main>
         </div>
         <footer className="App-footer">
