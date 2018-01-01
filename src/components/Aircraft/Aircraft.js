@@ -1,6 +1,6 @@
 import react, { Component } from 'react';
 import './aircraft.css';
-// import Cabin from '../Cabin/Cabin';
+import Row from '../Row/Row';
 import data from '../../data/seats.json';
 
 class Aircraft extends Component {
