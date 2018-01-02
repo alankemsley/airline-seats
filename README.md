@@ -4,6 +4,8 @@
 
 This app was written with HTML, CSS, JavaScript, JSX, and React.
 
+[[img src=/public/screenshot.png alt=Screenshot]]
+
 ## To run the application:
 1. Clone this repository to your local machine.
 2. Navigate to the root directory (airline-seats) in your terminal and run the command "npm install" to install required Node modules. Ensure you have Node and NPM installed.
