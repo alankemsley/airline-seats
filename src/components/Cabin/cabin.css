@@ -1,0 +1,18 @@
+.cabin {
+	text-align: center;
+}
+
+.cabin-table {
+  text-align: center;
+  border-spacing: 15px;
+  margin: 0 auto;
+}
+
+.row {
+  counter-increment: rowNumber;
+}
+
+.table-header {
+  text-align: left;
+  padding-left: 14px;
+}

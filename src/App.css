@@ -1,17 +1,3 @@
-/* Colors */
-
-/*
-Purple: #7C2B8A
-Pink: #E83796
-Green: #00AE3E
-Blue: #1C5EE5
-Grey: #E7E7EF
-White: #F7F7FA
-*/
-
-
-/* Main sections */
-
 .App {
   text-align: center;
 }
@@ -44,8 +30,13 @@ White: #F7F7FA
   padding-top: 20px;
 }
 
-/* Sticky Footer */
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
 
+/* Sticky Footer */
 :root {
   — space: 1.5em 0;
   — space: 2em 0;

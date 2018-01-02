@@ -13,7 +13,9 @@ class App extends Component {
           </header>
           <main className="App-main">
             <h1 className="App-title">SELECT SEAT</h1>
-            <Aircraft />
+            <div className="container">
+              <Aircraft />
+            </div>
           </main>
         </div>
         <footer className="App-footer">

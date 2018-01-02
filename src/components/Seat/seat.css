@@ -1,0 +1,27 @@
+.seat {
+  height: 30px;
+  width: 30px;
+}
+
+.occupied-true {
+  background-color: #E83796;
+  border: 3px solid #E83796;
+}
+
+.occupied-false {
+  background-color: #7C2B8A;
+  border: 3px solid #F7F7FA;
+}
+
+.occupied-false:hover {
+  background-color: #00AE3E;
+  cursor: pointer;
+}
+
+.selected-true {
+  background-color: #00AE3E;
+}
+
+.aisle-true {
+  padding-right: 30px;
+}
