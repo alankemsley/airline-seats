@@ -1,70 +1,85 @@
-import react, { Component } from 'react';
+import React, { Component } from 'react';
 import './aircraft.css';
-import Row from '../Row/Row';
+import Cabin from '../Cabin/Cabin';
 import data from '../../data/seats.json';
 
+// Aircraft component
 class Aircraft extends Component {
   constructor(props) {
     super(props);
+    this.selectSeat = this.selectSeat.bind(this);
     this.state = {
-      aircraft: {},
-      selected: false,
+      selectedSeat: null,
+      loading: true
     };
   }
 
-  componentWillMount() {
-    this.sortByRow(data);
+  // Obtain and sort seating data from seats.json
+  componentDidMount() {
+      let seats = data;
+      seats = seats.sort((a, b) => a.row - b.row);
+      seats = this.cabinSort(seats);
+      this.setState({ seats, loading: false });
   }
 
-  
-	sortByRow = (data) => {
-		let aircraft = {};
-		data.map(function(seat) {
-			if(aircraft[seat.row]) {
-				aircraft[seat.row].push(seat)
-			} else {
-				aircraft[seat.row] = [seat];
-			}
-		})
-		this.sortBySeat (aircraft);
+  // Sort seats by cabin class
+  cabinSort(seats) {
+    return seats.reduce((memo, x) => {
+      const arr = memo;
+      if (!arr[x.class]) {
+        arr[x.class] = [];
+      }
+      arr[x.class].push(x);
+      return arr;
+    }, {});
   }
-  
-  sortBySeat = (aircraft) =>{
-		for (var row in aircraft) {
-			aircraft[row].sort(function(a, b) {
-				if (a.seat < b.seat) {
-					return -1;
-				} else if (a.seat > b.seat) {
-					return 1;
-				} else {
-					return 0;
-				}
-			})
-		
-			this.locateAisle(aircraft[row]);
-		}
-		this.setState({aircraft: aircraft});
-	}
 
-  locateAisle = (row) => {
-		for (let i = row.length - 1; i > 1 ; i--) {
-			if ((row[i].seat.charCodeAt() - row[i - 1].seat.charCodeAt()) > 1) {
-				row.splice (i, 0, {name: "Aisle", seat: row[i].seat.row});
-			}
-		}
-	}
+  selectSeat(seat) {
+    if (!seat.occupied) {
+      const selectedSeat = seat.row + seat.seat;
+      if (selectedSeat === this.state.selectedSeat) {
+        this.setState({ selectedSeat: null });
+      } else {
+        this.setState({ selectedSeat });
+      }
+    }
+  }
 
-	renderRows = (row) => {
-		return (<Row selectedSeat={this.state.selected} selectSeat={this.selectSeat} row={row} rowNumber={row[0].row} rowCabin={row[0].cabin}></Row>)
-	}
+  render() {
+    const { seats, selectedSeat, loading } = this.state;
 
-	selectSeat = (seat) => {
-		if (!seat.occupied) {
-			this.setState({selected: seat});
-		}
-	}
+    if (loading) {
+      return <div className="aircraft">
+        <h1 className="App-title">Loading. Please wait...</h1>
+      </div>;
+    }
 
-
+    return (
+      <div className="aircraft">
+        {/* First Class */}
+        <Cabin
+          seats={seats.First}
+          selectSeat={this.selectSeat}
+          selectedSeat={selectedSeat}
+          classType="First"
+        />
+        {/* Business Class */}
+        <Cabin
+          seats={seats.Business}
+          selectSeat={this.selectSeat}
+          selectedSeat={selectedSeat}
+          classType="Business"
+        />
+        {/* Economy Class */}
+        <Cabin
+          seats={seats.Economy}
+          selectSeat={this.selectSeat}
+          selectedSeat={selectedSeat}
+          classType="Economy"
+        />
+      </div>
+    );
+  }
 }
 
 export default Aircraft;
