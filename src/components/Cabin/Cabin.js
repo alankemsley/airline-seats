@@ -11,7 +11,7 @@ class Cabin extends Component {
     this.state = { seats, aisles };
   }
 
-  // Obtain aisle information
+  // Sort for aisle seat
   findAisles(seats) {
     const aisles = [];
     const row = seats[0].sort((a, b) => a.seat > b.seat);

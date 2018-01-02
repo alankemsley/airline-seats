@@ -1,15 +1,15 @@
 import React from 'react';
 import './seat.css';
 
+// Seat component
 const Seat = ({ data, selectedSeat, selectSeat, aisleSeat }) => {
-  let isSelected = false;
+  let selected = false;
   if (selectedSeat === (data.row + data.seat)) {
-    isSelected = true;
+    selected = true;
   }
-
   return (
     <td className={`aisle-${aisleSeat}`}>
-      <div className={`seat occupied-${data.occupied} selected-${isSelected}`} onClick={() => selectSeat(data)} />
+      <div className={`seat occupied-${data.occupied} selected-${selected}`} onClick={() => selectSeat(data)} />
     </td>
   );
 };
