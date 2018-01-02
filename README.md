@@ -15,8 +15,11 @@ This app was written with HTML, CSS, JavaScript, JSX, and React.
 
 ## Developer notes:
 I imported the seating information from seats.json and sorted the seats by row and cabin class. I then broke up the app into several components:
+
 1. Aircraft, which represents the entire plane and contains all of the cabins
 2. Cabin, which represents each cabin class and contains the seats
 3. Seat, which represents each individual seat
 
-Given more time, I would denote each cabin class by a different background color. I would also make the app responsive to different screen sizes.
+Each seat is then given a state to indicate whether it is occupied, available, or selected.
+
+Given more time, I would denote each cabin class by a different background color, and denote premium economy seats. I would also make the app responsive to different screen sizes.
