@@ -2,3 +2,8 @@
   background-color: #7C2B8A;
   padding: 40px;
 }
+
+.first-class {
+  background-color: black !important;
+  display: none !important;
+}

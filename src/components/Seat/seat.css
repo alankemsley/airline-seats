@@ -20,6 +20,7 @@
 
 .selected-true {
   background-color: #00AE3E;
+  border: 3px solid #00AE3E;
 }
 
 .aisle-true {

@@ -61,21 +61,18 @@ class Aircraft extends Component {
           seats={seats.First}
           selectSeat={this.selectSeat}
           selectedSeat={selectedSeat}
-          classType="First"
         />
         {/* Business Class */}
         <Cabin
           seats={seats.Business}
           selectSeat={this.selectSeat}
           selectedSeat={selectedSeat}
-          classType="Business"
         />
         {/* Economy Class */}
         <Cabin
           seats={seats.Economy}
           selectSeat={this.selectSeat}
           selectedSeat={selectedSeat}
-          classType="Economy"
         />
       </div>
     );

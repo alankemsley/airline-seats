@@ -25,7 +25,7 @@
 
 .App-footer {
   background-color: #7C2B8A;
-  font-size: 8pt;
+  font-size: 9pt;
   height: 50px;
   padding-top: 20px;
 }
@@ -55,7 +55,7 @@
 }
 
 .App-content:after {
- content: ‘\00a0’;
+ content: "";
  display: block;
  margin-top: var( — space);
  height: 0;
