@@ -4,7 +4,9 @@
 
 This app was written with HTML, CSS, JavaScript, JSX, and React.
 
-[[img src=/public/screenshot.png alt=Screenshot]]
+<img src="/public/screenshot.png"
+     alt="App screenshot"
+     style="width: 500px;" />
 
 ## To run the application:
 1. Clone this repository to your local machine.
