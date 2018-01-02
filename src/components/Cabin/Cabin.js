@@ -33,7 +33,7 @@ class Cabin extends Component {
     }, {});
   }
 
-  // Identify aisle seats
+  // Identify whether seat is aisle seat
   aisleSeat(seat, nextSeat) {
     if (nextSeat && nextSeat.seat !== String.fromCharCode(seat.seat.charCodeAt(0) + 1)) {
       return true;
